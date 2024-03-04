@@ -2,7 +2,7 @@
 
 xdebug_present=`php -r "printf('%s' . PHP_EOL, extension_loaded('xdebug') ? 'yes' : 'no');"`
 
-if [ "$xdebug_present" = "yes" ]; then
+if [ "$xdebug_present" = "no" ]; then
     echo
     echo "There is no xdebug installed."
     exit 0
