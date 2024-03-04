@@ -1,0 +1,20 @@
+#!/bin/bash
+
+xdebug_present=`php -r "printf('%s' . PHP_EOL, extension_loaded('xdebug') ? 'yes' : 'no');"`
+
+if [ "$xdebug_present" = "yes" ]; then
+    echo
+    echo "There is no xdebug installed."
+    exit 0
+fi
+
+if [[ $# -eq 0 ]] ; then
+    echo
+    echo "Syntax: ./php_debug ./file.php " 
+    exit 0
+fi
+
+
+php -dxdebug.remote_enable=1   -dxdebug.remote_autostart=1   -dxdebug.remote_mode=req \
+    -dxdebug.remote_port=9000 -dxdebug.remote_host=localhost -dxdebug.idekey=phpstorm \
+    -dxdebug.remote_connect_back=0 "$@"
