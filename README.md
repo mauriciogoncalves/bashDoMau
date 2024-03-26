@@ -1,2 +1,2 @@
-# bashDoMau
-comandos bash linux (debian like)
+# ＃Notes, Commands and Scripts
+
